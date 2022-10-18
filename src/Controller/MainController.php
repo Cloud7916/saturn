@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    #[Route('/', name: 'app_main')]
+    #[Route('/', name: 'homepage')]
     public function index(): Response
     {
         $city = 'Ouagadougou';
@@ -20,5 +20,10 @@ class MainController extends AbstractController
             'vegetables' => $vegetables,
             'today' => new \DateTime(),
         ]);
+    }
+    #[Route('/contact', name: 'contact')]
+    public function contact() : Response
+    {
+        return $this->render('main/contact.html.twig');
     }
 }
